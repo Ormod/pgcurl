@@ -1,0 +1,28 @@
+## debian/packages for pgcurl 0.x
+Source: pgcurl
+Section: contrib/misc
+Priority: extra
+Maintainer: Hannu Valtonen <hannu.valtonen@ohmu.fi>
+Standards-Version: 3.6.2
+Description: libcurl interface for PostgreSQL
+Copyright: .
+ Copyright 2011 Hannu Valtonen @ Ohmu
+Build: sh
+ make
+Clean: sh
+ make clean || true
+Build-Depends: postgresql-server-dev-PGVER, flex | flex-old, bison, yada, libpq-dev, devscripts 
+
+
+Package: postgresql-pgcurl-PGVER
+Architecture: any
+Conflicts: pgcurl
+Replaces: pgcurl
+Contains: unstripped
+Depends: []
+Description: curl client functions for PostgreSQL
+ .
+Install: sh
+ make install DESTDIR=$ROOT
+
+

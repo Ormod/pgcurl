@@ -1,0 +1,19 @@
+-- Copyright (c) 2011 Hannu Valtonen <hannu.valtonen@ohmu.fi>
+-- See the file COPYING for distribution terms.
+
+-- Adjust this setting to control where the objects get created.
+SET search_path = public;
+
+-- $1 = URI - TEXT
+CREATE OR REPLACE FUNCTION pgcurl_get(TEXT) RETURNS TEXT
+AS 'MODULE_PATHNAME', 'pgcurl_get' LANGUAGE 'C' STRICT;
+
+-- $1 = URI - TEXT
+-- $2 = payload - TEXT
+CREATE OR REPLACE FUNCTION pgcurl_put(TEXT, TEXT) RETURNS TEXT
+AS 'MODULE_PATHNAME', 'pgcurl_put' LANGUAGE 'C' STRICT;
+
+-- $1 = URI - TEXT
+CREATE OR REPLACE FUNCTION pgcurl_delete(TEXT) RETURNS TEXT
+AS 'MODULE_PATHNAME', 'pgcurl_delete' LANGUAGE 'C' STRICT;
+
