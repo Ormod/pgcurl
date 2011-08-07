@@ -1,0 +1,65 @@
+pgcurl
+======
+
+pgcurl is a set of PostgreSQL user-defined functions that provide
+an interface to libcurl, and through it to the world of REST 
+services.
+
+REQUIREMENTS:
+=============
+
+1) libcurl
+2) PostgreSQL 8.4 or newer recommended (http://www.postgresql.org/)
+
+Latest versions are always preferred
+
+INSTALLATION:
+=============
+
+1a) Building from sources:
+--------------------------
+
+1) Install PostgreSQL with PGXS (if not already installed)
+2) Install libcurl
+3) make
+4) sudo make install
+
+If necessary, update LD_LIBRARY_CACHE for the PostgreSQL server owner and restart PostgreSQL.
+Also make sure that the pg_config binary is in your PATH (or edit the Makefile).
+
+1 b) Building on Debian:
+------------------------
+
+1) sudo make build-dep
+2) make deb84
+3) sudo dpkg -i ../postgresql-pgcurl-*.deb
+
+SETUP (run this for all databases you want to use pcurl in):
+=================================================================
+
+Run the following command to setup pgcurl
+
+	% psql -f /usr/local/postgresql/share/contrib/pgcurl.sql <mydbname>
+
+
+USAGE:
+======
+
+**pgcurl_get('URI'::TEXT)**
+
+**pgcurl_put('URI'::TEXT, 'PAYLOAD'::TEXT)**
+
+**pgcurl_delete('URI'::TEXT)**
+
+LICENSE:
+========
+
+pgcurl is released under an MIT-style license (BSD without advertising
+clause). For the exact license terms, see the file "COPYING".
+
+CONTACT:
+========
+
+Bug reports and patches are very welcome, either submitted via the
+github web interface (https://github.com/Ormod/pgcurl/issues),
+or sent via email to <hannu.valtonen@ohmu.fi>.
