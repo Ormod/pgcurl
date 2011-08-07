@@ -25,5 +25,5 @@ deb91:
 	yada rebuild
 	debuild -uc -us -b
 build-dep:
-	apt-get install libpq-dev devscripts yada flex bison libcurl4-gnutls-dev
+	apt-get install libpq-dev devscripts yada flex bison libcurl4-gnutls-dev devscripts
 
